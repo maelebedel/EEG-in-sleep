@@ -7,6 +7,8 @@ The goal of this project is to analyze and process an EEG recording from a sleep
 - **NREM sleep**
 - **Awake state**
 
+The main code is `BSP_Team02Topic01_Code.m`
+
 ---
 
 ## **Data Overview**
@@ -46,7 +48,7 @@ The raw EEG signal is plotted to understand its structure and identify potential
   - **Theta (θ)**: 4–7 Hz (Light sleep).
   - **Alpha (α)**: 7–10 Hz (Relaxation).
   - **Beta (β)**: 10–30 Hz (Wakefulness).
-  - **Gamma (γ)**: >30 Hz (Cognitive processing and high-level brain activity).
+  - **Gamma (γ)**: >30 Hz (Cognitive processing and high-level brain activity). _not taken into account for detection_
 - Power levels in these bands are compared to predefined thresholds to classify sleep stages (REM, NREM, awake).
 
 ### **6. Hypnogram Generation**
