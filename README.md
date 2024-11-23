@@ -14,7 +14,7 @@ The goal of this project is to analyze and process an EEG recording from a sleep
 The project is based on a one-night, single-lead EEG recording stored in the file `data_eeg.mat`:
 - **Sampling frequency**: 100 Hz
 - **EEG placement**: Forehead
-- The data contains approximately 6 hours of EEG signals recorded during sleep.
+- The data contains approximately **6 hours** of EEG signals recorded during sleep.
 
 ---
 
