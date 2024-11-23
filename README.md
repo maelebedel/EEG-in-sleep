@@ -26,8 +26,9 @@ The raw EEG signal is plotted to understand its structure and identify potential
 ### **2. Preprocessing**
 - **Artifact removal**:
   - Application of stop-band filters to remove artifacts at 0.99 Hz and 2 Hz (`coefficients_SOS_G.mat`& `coefficients_SOS2_G2.mat`).
-- **Band-pass filtering**:
-  - Isolation of relevant EEG frequency bands to focus on sleep-related activities.
+- **Band-pass filtering [0.5 - 30 Hz]**:
+  - Isolation of relevant EEG frequency bands to focus on sleep-related activities without noise like baseline drift or eye blink. 
+  - This range excludes gamma waves (>30 Hz), as they do not contribute to sleep analysis and helps reduce potential noise at higher frequencies.
 
 ### **3. Spectral Analysis**
 - Computation of the Fast Fourier Transform (FFT) to analyze frequency components.
@@ -41,13 +42,17 @@ The raw EEG signal is plotted to understand its structure and identify potential
 
 ### **5. Sleep Stage Detection**
 - Frequency bands analyzed:
-  - **Delta**: Deep sleep.
-  - **Theta**: Light sleep.
-  - **Alpha**: Relaxation.
-  - **Beta**: Wakefulness.
+  - **Delta (δ)**: 1–4 Hz (Deep sleep).
+  - **Theta (θ)**: 4–7 Hz (Light sleep).
+  - **Alpha (α)**: 7–10 Hz (Relaxation).
+  - **Beta (β)**: 10–30 Hz (Wakefulness).
+  - **Gamma (γ)**: >30 Hz (Cognitive processing and high-level brain activity).
 - Power levels in these bands are compared to predefined thresholds to classify sleep stages (REM, NREM, awake).
 
-### **6. Data Normalization**
+### **6. Hypnogram Generation**
+- An **hypnogram** is created to give an overview of sleep architecture, highlighting transitions between stages over time.
+
+### **7. Data Normalization**
 - A manual **Box-Cox transformation** is applied to normalize the data and ensure consistency across epochs.
 
 ---
@@ -79,7 +84,7 @@ The raw EEG signal is plotted to understand its structure and identify potential
 
 ### **2. Sleep Stage Detection**
 - **Classification**:
-  - REM, NREM, and awake stages are identified based on frequency band power.
+  - REM, NREM, and awake stages are identified based on frequency eeg-band power.
 - **Representation**:
   - Sleep stages are detected for each epoch of the EEG signal, providing a timeline of the sleep phases.
 - **Hypnogram**:
